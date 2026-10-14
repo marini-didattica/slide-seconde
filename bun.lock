@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "seconde",
+      "name": "slide-seconde",
       "dependencies": {
         "@slidev/cli": "^53.0.0",
         "marini-slidev-addons": "git+https://github.com/russell-informatica/slidev-addons.git",
