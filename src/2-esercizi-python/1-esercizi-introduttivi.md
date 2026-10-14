@@ -38,13 +38,11 @@ lista = [4, 2, 9, 1, 7]
 
 massimo = lista[0]
 minimo = lista[0]
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     if lista[i] > massimo:
         massimo = lista[i]
     if lista[i] < minimo:
         minimo = lista[i]
-    i = i + 1
 
 print("massimo =", massimo)
 print("minimo =", minimo)
@@ -63,18 +61,16 @@ class: table-sm
 
 ::left::
 
-```python {1|3-5|7-9|10-11|12|7-9|10-11|12|7-9|10-11|12|7-9|10-11|12|7-9|10-11|12|7|14|15} {at: 1}
+```python {1|3-4|5|6-7|8-9|5|6-7|8-9|5|6-7|8-9|5|6-7|8-9|5|6-7|8-9|5|11|12} {at: 1}
 lista = [4, 2, 9, 1, 7]
 
 massimo = lista[0]
 minimo = lista[0]
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     if lista[i] > massimo:
         massimo = lista[i]
     if lista[i] < minimo:
         minimo = lista[i]
-    i = i + 1
 
 print("massimo =", massimo)
 print("minimo =", minimo)
@@ -84,7 +80,7 @@ print("minimo =", minimo)
 
 <ListTracker
   :items="[4, 2, 9, 1, 7]"
-  :trackers="{ i: { 1: 0, 4: 1, 7: 2, 10: 3, 13: 4, 16: 5 } }"
+  :trackers="{ i: { 2: 0, 5: 1, 8: 2, 11: 3, 14: 4, 17: 5 } }"
   highlight
 />
 
@@ -100,28 +96,28 @@ print("minimo =", minimo)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>i = —</template>
-          <template #1-4>i = 0</template>
-          <template #4-7>i = 1</template>
-          <template #7-10>i = 2</template>
-          <template #10-13>i = 3</template>
-          <template #13-16>i = 4</template>
-          <template #16-20>i = 5</template>
+          <template #0-2>i = —</template>
+          <template #2-5>i = 0</template>
+          <template #5-8>i = 1</template>
+          <template #8-11>i = 2</template>
+          <template #11-14>i = 3</template>
+          <template #14-17>i = 4</template>
+          <template #17-20>i = 5</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>massimo = —</template>
-          <template #1-8>massimo = 4</template>
-          <template #8-20>massimo = 9</template>
+          <template #1-9>massimo = 4</template>
+          <template #9-20>massimo = 9</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>minimo = —</template>
-          <template #1-6>minimo = 4</template>
-          <template #6-12>minimo = 2</template>
-          <template #12-20>minimo = 1</template>
+          <template #1-7>minimo = 4</template>
+          <template #7-13>minimo = 2</template>
+          <template #13-20>minimo = 1</template>
         </v-switch>
       </td>
     </tr>
@@ -174,23 +170,22 @@ class: table-sm
 
 # Esercizio 2 — Ricerca lineare
 
-<span class="px-2 py-1 rounded bg-primary text-[#141418]">Soluzione</span> Il ciclo continua solo finché `indice` è ancora `-1`.
+<span class="px-2 py-1 rounded bg-primary text-[#141418]">Soluzione</span> Appena trovato l'elemento, `break` ferma il ciclo.
 
 ```python
 lista = [4, 2, 9, 1]
 cercato = 9
 
 indice = -1
-i = 0
-while i < len(lista) and indice == -1:
+for i in range(len(lista)):
     if lista[i] == cercato:
         indice = i
-    i = i + 1
+        break
 
 print("indice =", indice)
 ```
 
-> **Nota** Senza usare `.index()` né l'operatore `in`. La condizione `indice == -1` fa uscire il `while` alla prima occorrenza.
+> **Nota** Senza usare `.index()` né l'operatore `in`. Il `break` esce dal ciclo alla prima occorrenza trovata.
 
 ---
 layout: two-cols-header
@@ -203,16 +198,15 @@ class: table-sm
 
 ::left::
 
-```python {1|2|4-5|6|7|9|6|7|9|6|7|8|9|6|11} {at: 1}
+```python {1-2|4|5|6|5|6|5|6|7|8|10} {at: 1}
 lista = [4, 2, 9, 1]
 cercato = 9
 
 indice = -1
-i = 0
-while i < len(lista) and indice == -1:
+for i in range(len(lista)):
     if lista[i] == cercato:
         indice = i
-    i = i + 1
+        break
 
 print("indice =", indice)
 ```
@@ -221,7 +215,7 @@ print("indice =", indice)
 
 <ListTracker
   :items="[4, 2, 9, 1]"
-  :trackers="{ i: { 2: 0, 5: 1, 8: 2, 12: 3 } }"
+  :trackers="{ i: { 2: 0, 4: 1, 6: 2 } }"
   highlight
 />
 
@@ -237,17 +231,16 @@ print("indice =", indice)
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-2>i = —</template>
-          <template #2-5>i = 0</template>
-          <template #5-8>i = 1</template>
-          <template #8-12>i = 2</template>
-          <template #12-15>i = 3</template>
+          <template #2-4>i = 0</template>
+          <template #4-6>i = 1</template>
+          <template #6-11>i = 2</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-2>indice = —</template>
-          <template #2-11>indice = -1</template>
-          <template #11-15>indice = 2</template>
+          <template #0-1>indice = —</template>
+          <template #1-8>indice = -1</template>
+          <template #8-11>indice = 2</template>
         </v-switch>
       </td>
     </tr>
@@ -264,8 +257,8 @@ print("indice =", indice)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-14>—</template>
-          <template #14-15>indice = 2</template>
+          <template #0-10>—</template>
+          <template #10-11>indice = 2</template>
         </v-switch>
       </td>
     </tr>
@@ -287,16 +280,15 @@ class: table-sm
 
 ::left::
 
-```python {1|2|4-5|6|7|9|6|7|9|6|7|9|6|7|9|6|11} {at: 1}
+```python {1-2|4|5|6|5|6|5|6|5|6|5|10} {at: 1}
 lista = [4, 2, 9, 1]
 cercato = 7
 
 indice = -1
-i = 0
-while i < len(lista) and indice == -1:
+for i in range(len(lista)):
     if lista[i] == cercato:
         indice = i
-    i = i + 1
+        break
 
 print("indice =", indice)
 ```
@@ -305,7 +297,7 @@ print("indice =", indice)
 
 <ListTracker
   :items="[4, 2, 9, 1]"
-  :trackers="{ i: { 2: 0, 5: 1, 8: 2, 11: 3, 14: 4 } }"
+  :trackers="{ i: { 2: 0, 4: 1, 6: 2, 8: 3, 10: 4 } }"
   highlight
 />
 
@@ -321,17 +313,17 @@ print("indice =", indice)
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-2>i = —</template>
-          <template #2-5>i = 0</template>
-          <template #5-8>i = 1</template>
-          <template #8-11>i = 2</template>
-          <template #11-14>i = 3</template>
-          <template #14-17>i = 4</template>
+          <template #2-4>i = 0</template>
+          <template #4-6>i = 1</template>
+          <template #6-8>i = 2</template>
+          <template #8-10>i = 3</template>
+          <template #10-12>i = 4</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-2>indice = —</template>
-          <template #2-17>indice = -1</template>
+          <template #0-1>indice = —</template>
+          <template #1-12>indice = -1</template>
         </v-switch>
       </td>
     </tr>
@@ -348,8 +340,8 @@ print("indice =", indice)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-16>—</template>
-          <template #16-17>indice = -1</template>
+          <template #0-11>—</template>
+          <template #11-12>indice = -1</template>
         </v-switch>
       </td>
     </tr>
@@ -388,10 +380,8 @@ class: table-sm
 lista = [2, 4, 6]
 
 somma = 0
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     somma = somma + lista[i]
-    i = i + 1
 
 media = somma / len(lista)
 print("somma =", somma)
@@ -411,14 +401,12 @@ class: table-sm
 
 ::left::
 
-```python {1|3-4|5|6|7|5|6|7|5|6|7|5|9|10|11} {at: 1}
+```python {1|3|4|5|4|5|4|5|4|7|8|9} {at: 1}
 lista = [2, 4, 6]
 
 somma = 0
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     somma = somma + lista[i]
-    i = i + 1
 
 media = somma / len(lista)
 print("somma =", somma)
@@ -429,7 +417,7 @@ print("media =", media)
 
 <ListTracker
   :items="[2, 4, 6]"
-  :trackers="{ i: { 1: 0, 4: 1, 7: 2, 10: 3 } }"
+  :trackers="{ i: { 2: 0, 4: 1, 6: 2, 8: 3 } }"
   highlight
 />
 
@@ -445,26 +433,26 @@ print("media =", media)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>i = —</template>
-          <template #1-5>i = 0</template>
-          <template #5-8>i = 1</template>
-          <template #8-11>i = 2</template>
-          <template #11-15>i = 3</template>
+          <template #0-2>i = —</template>
+          <template #2-4>i = 0</template>
+          <template #4-6>i = 1</template>
+          <template #6-8>i = 2</template>
+          <template #8-12>i = 3</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>somma = —</template>
           <template #1-3>somma = 0</template>
-          <template #3-6>somma = 2</template>
-          <template #6-9>somma = 6</template>
-          <template #9-15>somma = 12</template>
+          <template #3-5>somma = 2</template>
+          <template #5-7>somma = 6</template>
+          <template #7-12>somma = 12</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-12>media = —</template>
-          <template #12-15>media = 4.0</template>
+          <template #0-9>media = —</template>
+          <template #9-12>media = 4.0</template>
         </v-switch>
       </td>
     </tr>
@@ -481,9 +469,9 @@ print("media =", media)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-13>—</template>
-          <template #13-14>somma = 12</template>
-          <template #14-15>somma = 12<br>media = 4.0</template>
+          <template #0-10>—</template>
+          <template #10-11>somma = 12</template>
+          <template #11-12>somma = 12<br>media = 4.0</template>
         </v-switch>
       </td>
     </tr>
@@ -522,11 +510,9 @@ class: table-sm
 lista = [1, 4, 7, 8, 10]
 
 conta = 0
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     if lista[i] % 2 == 0:
         conta = conta + 1
-    i = i + 1
 
 print("pari =", conta)
 ```
@@ -544,15 +530,13 @@ class: table-sm
 
 ::left::
 
-```python {1|3-4|5-6|8|5-6|7|8|5-6|8|5-6|7|8|5-6|7|8|5|10} {at: 1}
+```python {1|3|4|5-6|4|5-6|4|5-6|4|5-6|4|5-6|4|8} {at: 1}
 lista = [1, 4, 7, 8, 10]
 
 conta = 0
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     if lista[i] % 2 == 0:
         conta = conta + 1
-    i = i + 1
 
 print("pari =", conta)
 ```
@@ -561,7 +545,7 @@ print("pari =", conta)
 
 <ListTracker
   :items="[1, 4, 7, 8, 10]"
-  :trackers="{ i: { 1: 0, 3: 1, 6: 2, 8: 3, 11: 4, 14: 5 } }"
+  :trackers="{ i: { 2: 0, 4: 1, 6: 2, 8: 3, 10: 4, 12: 5 } }"
   highlight
 />
 
@@ -576,22 +560,22 @@ print("pari =", conta)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>i = —</template>
-          <template #1-3>i = 0</template>
-          <template #3-6>i = 1</template>
+          <template #0-2>i = —</template>
+          <template #2-4>i = 0</template>
+          <template #4-6>i = 1</template>
           <template #6-8>i = 2</template>
-          <template #8-11>i = 3</template>
-          <template #11-14>i = 4</template>
-          <template #14-17>i = 5</template>
+          <template #8-10>i = 3</template>
+          <template #10-12>i = 4</template>
+          <template #12-14>i = 5</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>conta = —</template>
           <template #1-5>conta = 0</template>
-          <template #5-10>conta = 1</template>
-          <template #10-13>conta = 2</template>
-          <template #13-17>conta = 3</template>
+          <template #5-9>conta = 1</template>
+          <template #9-11>conta = 2</template>
+          <template #11-14>conta = 3</template>
         </v-switch>
       </td>
     </tr>
@@ -608,8 +592,8 @@ print("pari =", conta)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-16>—</template>
-          <template #16-17>pari = 3</template>
+          <template #0-13>—</template>
+          <template #13-14>pari = 3</template>
         </v-switch>
       </td>
     </tr>
@@ -648,10 +632,8 @@ class: table-sm
 lista = [1, 2, 3, 4]
 
 invertita = []
-i = len(lista) - 1
-while i >= 0:
+for i in range(len(lista) - 1, -1, -1):
     invertita.append(lista[i])
-    i = i - 1
 
 print(invertita)
 ```
@@ -669,14 +651,12 @@ class: table-sm
 
 ::left::
 
-```python {1|3-4|5|6|7|5|6|7|5|6|7|5|6|7|5|9} {at: 1}
+```python {1|3|4|5|4|5|4|5|4|5|7} {at: 1}
 lista = [1, 2, 3, 4]
 
 invertita = []
-i = len(lista) - 1
-while i >= 0:
+for i in range(len(lista) - 1, -1, -1):
     invertita.append(lista[i])
-    i = i - 1
 
 print(invertita)
 ```
@@ -685,7 +665,7 @@ print(invertita)
 
 <ListTracker
   :items="[1, 2, 3, 4]"
-  :trackers="{ i: { 1: 3, 4: 2, 7: 1, 10: 0, 13: -1 } }"
+  :trackers="{ i: { 2: 3, 4: 2, 6: 1, 8: 0 } }"
   highlight
 />
 
@@ -700,22 +680,21 @@ print(invertita)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>i = —</template>
-          <template #1-4>i = 3</template>
-          <template #4-7>i = 2</template>
-          <template #7-10>i = 1</template>
-          <template #10-13>i = 0</template>
-          <template #13-16>i = -1</template>
+          <template #0-2>i = —</template>
+          <template #2-4>i = 3</template>
+          <template #4-6>i = 2</template>
+          <template #6-8>i = 1</template>
+          <template #8-11>i = 0</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>invertita = —</template>
           <template #1-3>invertita = []</template>
-          <template #3-6>invertita = [4]</template>
-          <template #6-9>invertita = [4, 3]</template>
-          <template #9-12>invertita = [4, 3, 2]</template>
-          <template #12-16>invertita = [4, 3, 2, 1]</template>
+          <template #3-5>invertita = [4]</template>
+          <template #5-7>invertita = [4, 3]</template>
+          <template #7-9>invertita = [4, 3, 2]</template>
+          <template #9-11>invertita = [4, 3, 2, 1]</template>
         </v-switch>
       </td>
     </tr>
@@ -732,8 +711,8 @@ print(invertita)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-15>—</template>
-          <template #15-16>[4, 3, 2, 1]</template>
+          <template #0-10>—</template>
+          <template #10-11>[4, 3, 2, 1]</template>
         </v-switch>
       </td>
     </tr>
@@ -753,14 +732,11 @@ print(invertita)
 ```python
 lista = [1, 2, 3, 4]
 
-sinistra = 0
-destra = len(lista) - 1
-while sinistra < destra:
+for sinistra in range(len(lista) // 2):
+    destra = len(lista) - 1 - sinistra
     temp = lista[sinistra]
     lista[sinistra] = lista[destra]
     lista[destra] = temp
-    sinistra = sinistra + 1
-    destra = destra - 1
 
 print(lista)
 ```
@@ -778,17 +754,14 @@ class: table-sm
 
 ::left::
 
-```python {1|3-4|5|6|7|8|9|10|5|6|7|8|9|10|5|12} {at: 1}
+```python {1|3|4|5|6|7|3|4|5|6|7|3|9} {at: 1}
 lista = [1, 2, 3, 4]
 
-sinistra = 0
-destra = len(lista) - 1
-while sinistra < destra:
+for sinistra in range(len(lista) // 2):
+    destra = len(lista) - 1 - sinistra
     temp = lista[sinistra]
     lista[sinistra] = lista[destra]
     lista[destra] = temp
-    sinistra = sinistra + 1
-    destra = destra - 1
 
 print(lista)
 ```
@@ -798,8 +771,8 @@ print(lista)
 <ListTracker
   :items="[1, 2, 3, 4]"
   :trackers="[
-    { name: 'sinistra', values: { 1: 0, 6: 1, 12: 2 } },
-    { name: 'destra', values: { 1: 3, 7: 2, 13: 1 } },
+    { name: 'sinistra', values: { 1: 0, 6: 1 } },
+    { name: 'destra', values: { 2: 3, 7: 2 } },
   ]"
   highlight
 />
@@ -819,32 +792,30 @@ print(lista)
         <v-switch at="1" class="font-mono">
           <template #0-1>—</template>
           <template #1-6>0</template>
-          <template #6-12>1</template>
-          <template #12-16>2</template>
+          <template #6-13>1</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>—</template>
-          <template #1-7>3</template>
+          <template #0-2>—</template>
+          <template #2-7>3</template>
           <template #7-13>2</template>
-          <template #13-16>1</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-3>—</template>
-          <template #3-9>1</template>
-          <template #9-16>2</template>
+          <template #3-8>1</template>
+          <template #8-13>2</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-4>[1, 2, 3, 4]</template>
           <template #4-5>[4, 2, 3, 4]</template>
-          <template #5-10>[4, 2, 3, 1]</template>
-          <template #10-11>[4, 3, 3, 1]</template>
-          <template #11-16>[4, 3, 2, 1]</template>
+          <template #5-9>[4, 2, 3, 1]</template>
+          <template #9-10>[4, 3, 3, 1]</template>
+          <template #10-13>[4, 3, 2, 1]</template>
         </v-switch>
       </td>
     </tr>
@@ -861,8 +832,8 @@ print(lista)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-15>—</template>
-          <template #15-16>[4, 3, 2, 1]</template>
+          <template #0-12>—</template>
+          <template #12-13>[4, 3, 2, 1]</template>
         </v-switch>
       </td>
     </tr>
@@ -902,13 +873,10 @@ class: table-sm
 parola = "radar"
 
 palindromo = True
-sinistra = 0
-destra = len(parola) - 1
-while sinistra < destra:
+for sinistra in range(len(parola) // 2):
+    destra = len(parola) - 1 - sinistra
     if parola[sinistra] != parola[destra]:
         palindromo = False
-    sinistra = sinistra + 1
-    destra = destra - 1
 
 if palindromo == True:
     print("palindromo")
@@ -929,17 +897,15 @@ class: table-sm
 
 ::left::
 
-```python {1|3-5|6|7|9|10|6|7|9|10|6|11|12} {at: 1}
+```python {1|3|4|5|6|4|5|6|4|9|10} {at: 1}
 parola = "radar"
 
 palindromo = True
-sinistra = 0
-destra = len(parola) - 1
-while sinistra < destra:
+for sinistra in range(len(parola) // 2):
+    destra = len(parola) - 1 - sinistra
     if parola[sinistra] != parola[destra]:
         palindromo = False
-    sinistra = sinistra + 1
-    destra = destra - 1
+
 if palindromo == True:
     print("palindromo")
 else:
@@ -951,8 +917,8 @@ else:
 <ListTracker
   :items="['r', 'a', 'd', 'a', 'r']"
   :trackers="[
-    { name: 'sinistra', values: { 1: 0, 4: 1, 8: 2 } },
-    { name: 'destra', values: { 1: 4, 5: 3, 9: 2 } },
+    { name: 'sinistra', values: { 2: 0, 5: 1 } },
+    { name: 'destra', values: { 3: 4, 6: 3 } },
   ]"
   highlight
 />
@@ -969,18 +935,16 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>—</template>
-          <template #1-4>0</template>
-          <template #4-8>1</template>
-          <template #8-13>2</template>
+          <template #0-2>—</template>
+          <template #2-5>0</template>
+          <template #5-11>1</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>—</template>
-          <template #1-5>4</template>
-          <template #5-9>3</template>
-          <template #9-13>2</template>
+          <template #0-3>—</template>
+          <template #3-6>4</template>
+          <template #6-11>3</template>
         </v-switch>
       </td>
       <td>
@@ -1003,8 +967,8 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-12>—</template>
-          <template #12-13>palindromo</template>
+          <template #0-10>—</template>
+          <template #10-11>palindromo</template>
         </v-switch>
       </td>
     </tr>
@@ -1026,17 +990,15 @@ class: table-sm
 
 ::left::
 
-```python {1|3-5|6|7|8|9|10|6|7|8|9|10|6|11|14} {at: 1}
+```python {1|3|4|5|6|7|4|5|6|7|4|9|12} {at: 1}
 parola = "hello"
 
 palindromo = True
-sinistra = 0
-destra = len(parola) - 1
-while sinistra < destra:
+for sinistra in range(len(parola) // 2):
+    destra = len(parola) - 1 - sinistra
     if parola[sinistra] != parola[destra]:
         palindromo = False
-    sinistra = sinistra + 1
-    destra = destra - 1
+
 if palindromo == True:
     print("palindromo")
 else:
@@ -1048,8 +1010,8 @@ else:
 <ListTracker
   :items="['h', 'e', 'l', 'l', 'o']"
   :trackers="[
-    { name: 'sinistra', values: { 1: 0, 5: 1, 10: 2 } },
-    { name: 'destra', values: { 1: 4, 6: 3, 11: 2 } },
+    { name: 'sinistra', values: { 2: 0, 6: 1 } },
+    { name: 'destra', values: { 3: 4, 7: 3 } },
   ]"
   highlight
 />
@@ -1066,25 +1028,23 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>—</template>
-          <template #1-5>0</template>
-          <template #5-10>1</template>
-          <template #10-15>2</template>
+          <template #0-2>—</template>
+          <template #2-6>0</template>
+          <template #6-13>1</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-3>—</template>
+          <template #3-7>4</template>
+          <template #7-13>3</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>—</template>
-          <template #1-6>4</template>
-          <template #6-11>3</template>
-          <template #11-15>2</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-1>—</template>
-          <template #1-4>True</template>
-          <template #4-15>False</template>
+          <template #1-5>True</template>
+          <template #5-13>False</template>
         </v-switch>
       </td>
     </tr>
@@ -1101,8 +1061,8 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-14>—</template>
-          <template #14-15>non palindromo</template>
+          <template #0-12>—</template>
+          <template #12-13>non palindromo</template>
         </v-switch>
       </td>
     </tr>
@@ -1141,11 +1101,9 @@ class: table-sm
 lista = [1, 4, 7, 8, 10]
 
 filtrata = []
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     if lista[i] % 2 == 0:
         filtrata.append(lista[i])
-    i = i + 1
 
 print(filtrata)
 ```
@@ -1163,15 +1121,13 @@ class: table-sm
 
 ::left::
 
-```python {1|3-4|5-6|8|5-6|7|8|5-6|8|5-6|7|8|5-6|7|8|5|10} {at: 1}
+```python {1|3|4|5-6|4|5-6|4|5-6|4|5-6|4|5-6|4|8} {at: 1}
 lista = [1, 4, 7, 8, 10]
 
 filtrata = []
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     if lista[i] % 2 == 0:
         filtrata.append(lista[i])
-    i = i + 1
 
 print(filtrata)
 ```
@@ -1180,7 +1136,7 @@ print(filtrata)
 
 <ListTracker
   :items="[1, 4, 7, 8, 10]"
-  :trackers="{ i: { 1: 0, 3: 1, 6: 2, 8: 3, 11: 4, 14: 5 } }"
+  :trackers="{ i: { 2: 0, 4: 1, 6: 2, 8: 3, 10: 4, 12: 5 } }"
   highlight
 />
 
@@ -1195,22 +1151,22 @@ print(filtrata)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>i = —</template>
-          <template #1-3>i = 0</template>
-          <template #3-6>i = 1</template>
+          <template #0-2>i = —</template>
+          <template #2-4>i = 0</template>
+          <template #4-6>i = 1</template>
           <template #6-8>i = 2</template>
-          <template #8-11>i = 3</template>
-          <template #11-14>i = 4</template>
-          <template #14-17>i = 5</template>
+          <template #8-10>i = 3</template>
+          <template #10-12>i = 4</template>
+          <template #12-14>i = 5</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>filtrata = —</template>
           <template #1-5>filtrata = []</template>
-          <template #5-10>filtrata = [4]</template>
-          <template #10-13>filtrata = [4, 8]</template>
-          <template #13-17>filtrata = [4, 8, 10]</template>
+          <template #5-9>filtrata = [4]</template>
+          <template #9-11>filtrata = [4, 8]</template>
+          <template #11-14>filtrata = [4, 8, 10]</template>
         </v-switch>
       </td>
     </tr>
@@ -1227,8 +1183,8 @@ print(filtrata)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-16>—</template>
-          <template #16-17>[4, 8, 10]</template>
+          <template #0-13>—</template>
+          <template #13-14>[4, 8, 10]</template>
         </v-switch>
       </td>
     </tr>
@@ -1249,11 +1205,9 @@ print(filtrata)
 frase = "ab c"
 
 senza_spazi = ""
-i = 0
-while i < len(frase):
+for i in range(len(frase)):
     if frase[i] != " ":
         senza_spazi = senza_spazi + frase[i]
-    i = i + 1
 
 print(senza_spazi)
 ```
@@ -1271,15 +1225,13 @@ class: table-sm
 
 ::left::
 
-```python {1|3-4|5-6|7|8|5-6|7|8|5-6|8|5-6|7|8|5|10} {at: 1}
+```python {1|3|4|5-6|4|5-6|4|5-6|4|5-6|4|8} {at: 1}
 frase = "ab c"
 
 senza_spazi = ""
-i = 0
-while i < len(frase):
+for i in range(len(frase)):
     if frase[i] != " ":
         senza_spazi = senza_spazi + frase[i]
-    i = i + 1
 
 print(senza_spazi)
 ```
@@ -1288,7 +1240,7 @@ print(senza_spazi)
 
 <ListTracker
   :items="['a', 'b', '␣', 'c']"
-  :trackers="{ i: { 1: 0, 4: 1, 7: 2, 10: 3, 13: 4 } }"
+  :trackers="{ i: { 2: 0, 4: 1, 6: 2, 8: 3, 10: 4 } }"
   highlight
 />
 
@@ -1303,21 +1255,21 @@ print(senza_spazi)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>i = —</template>
-          <template #1-4>i = 0</template>
-          <template #4-7>i = 1</template>
-          <template #7-10>i = 2</template>
-          <template #10-13>i = 3</template>
-          <template #13-15>i = 4</template>
+          <template #0-2>i = —</template>
+          <template #2-4>i = 0</template>
+          <template #4-6>i = 1</template>
+          <template #6-8>i = 2</template>
+          <template #8-10>i = 3</template>
+          <template #10-12>i = 4</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>senza_spazi = —</template>
           <template #1-3>senza_spazi = ""</template>
-          <template #3-6>senza_spazi = "a"</template>
-          <template #6-11>senza_spazi = "ab"</template>
-          <template #11-15>senza_spazi = "abc"</template>
+          <template #3-5>senza_spazi = "a"</template>
+          <template #5-9>senza_spazi = "ab"</template>
+          <template #9-12>senza_spazi = "abc"</template>
         </v-switch>
       </td>
     </tr>
@@ -1334,8 +1286,8 @@ print(senza_spazi)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-14>—</template>
-          <template #14-15>abc</template>
+          <template #0-11>—</template>
+          <template #11-12>abc</template>
         </v-switch>
       </td>
     </tr>
@@ -1379,23 +1331,17 @@ anagrammi = True
 if len(parola_A) != len(parola_B):
     anagrammi = False
 
-i = 0
-while i < len(parola_A) and anagrammi == True:
+for i in range(len(parola_A)):
     conta_A = 0
     conta_B = 0
-    j = 0
-    while j < len(parola_A):
+    for j in range(len(parola_A)):
         if parola_A[j] == parola_A[i]:
             conta_A = conta_A + 1
-        j = j + 1
-    j = 0
-    while j < len(parola_B):
+    for j in range(len(parola_B)):
         if parola_B[j] == parola_A[i]:
             conta_B = conta_B + 1
-        j = j + 1
     if conta_A != conta_B:
         anagrammi = False
-    i = i + 1
 
 if anagrammi == True:
     print("anagrammi")
@@ -1416,7 +1362,7 @@ class: table-sm
 
 ::left::
 
-```python {1|2|4|5|8|9|10-21|22|24|9|10-21|22|24|9|10-21|22|24|9|10-21|22|24|9|26|27}{maxHeight:'40vh'} {at: 1}
+```python {1-2|4-6|8|9-16|17|8|9-16|17|8|9-16|17|8|9-16|17|8|20|21}{maxHeight:'40vh'} {at: 1}
 parola_A = "roma"
 parola_B = "amor"
 
@@ -1424,23 +1370,17 @@ anagrammi = True
 if len(parola_A) != len(parola_B):
     anagrammi = False
 
-i = 0
-while i < len(parola_A) and anagrammi == True:
+for i in range(len(parola_A)):
     conta_A = 0
     conta_B = 0
-    j = 0
-    while j < len(parola_A):
+    for j in range(len(parola_A)):
         if parola_A[j] == parola_A[i]:
             conta_A = conta_A + 1
-        j = j + 1
-    j = 0
-    while j < len(parola_B):
+    for j in range(len(parola_B)):
         if parola_B[j] == parola_A[i]:
             conta_B = conta_B + 1
-        j = j + 1
     if conta_A != conta_B:
         anagrammi = False
-    i = i + 1
 
 if anagrammi == True:
     print("anagrammi")
@@ -1452,7 +1392,7 @@ else:
 
 <ListTracker
   :items="['r', 'o', 'm', 'a']"
-  :trackers="{ i: { 4: 0, 8: 1, 12: 2, 16: 3, 20: 4 } }"
+  :trackers="{ i: { 2: 0, 5: 1, 8: 2, 11: 3, 14: 4 } }"
   highlight
 />
 
@@ -1469,148 +1409,30 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-4>—</template>
-          <template #4-8>0</template>
-          <template #8-12>1</template>
-          <template #12-16>2</template>
-          <template #16-20>3</template>
-          <template #20-24>4</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-6>—</template>
-          <template #6-24>1</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-6>—</template>
-          <template #6-24>1</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
           <template #0-2>—</template>
-          <template #2-24>True</template>
-        </v-switch>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-23>—</template>
-          <template #23-24>anagrammi</template>
-        </v-switch>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-::bottom::
-
-<ClicksSlider class="mt-2" />
-
-> **Nota** Nel passo `10-21` il conteggio delle due lettere è raggruppato in un unico stato, per mantenere la traccia leggibile.
-
----
-layout: two-cols-header
-class: table-sm
----
-
-# Esercizio 8 — Due stringhe sono anagrammi?
-
-<span class="px-2 py-1 rounded bg-primary text-[#141418]">Traccia</span> `parola_A = "ciao"` — `parola_B = "cane"`
-
-::left::
-
-```python {1|2|4|5|8|9|10-21|22|24|9|10-21|22|23|24|9|26|29}{maxHeight:'40vh'} {at: 1}
-parola_A = "ciao"
-parola_B = "cane"
-
-anagrammi = True
-if len(parola_A) != len(parola_B):
-    anagrammi = False
-
-i = 0
-while i < len(parola_A) and anagrammi == True:
-    conta_A = 0
-    conta_B = 0
-    j = 0
-    while j < len(parola_A):
-        if parola_A[j] == parola_A[i]:
-            conta_A = conta_A + 1
-        j = j + 1
-    j = 0
-    while j < len(parola_B):
-        if parola_B[j] == parola_A[i]:
-            conta_B = conta_B + 1
-        j = j + 1
-    if conta_A != conta_B:
-        anagrammi = False
-    i = i + 1
-
-if anagrammi == True:
-    print("anagrammi")
-else:
-    print("non anagrammi")
-```
-
-::right::
-
-<ListTracker
-  :items="['c', 'i', 'a', 'o']"
-  :trackers="{ i: { 4: 0, 8: 1, 13: 2 } }"
-  highlight
-/>
-
-<table>
-  <thead>
-    <tr>
-      <th>i</th>
-      <th>conta_A</th>
-      <th>conta_B</th>
-      <th>anagrammi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-4>—</template>
-          <template #4-8>0</template>
-          <template #8-13>1</template>
-          <template #13-17>2</template>
+          <template #2-5>0</template>
+          <template #5-8>1</template>
+          <template #8-11>2</template>
+          <template #11-14>3</template>
+          <template #14-17>4</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-6>—</template>
-          <template #6-17>1</template>
+          <template #0-3>—</template>
+          <template #3-17>1</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-6>—</template>
-          <template #6-10>1</template>
-          <template #10-17>0</template>
+          <template #0-3>—</template>
+          <template #3-17>1</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-2>—</template>
-          <template #2-12>True</template>
-          <template #12-17>False</template>
+          <template #0-1>—</template>
+          <template #1-17>True</template>
         </v-switch>
       </td>
     </tr>
@@ -1628,7 +1450,122 @@ else:
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-16>—</template>
-          <template #16-17>non anagrammi</template>
+          <template #16-17>anagrammi</template>
+        </v-switch>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+::bottom::
+
+<ClicksSlider class="mt-2" />
+
+
+---
+layout: two-cols-header
+class: table-sm
+---
+
+# Esercizio 8 — Due stringhe sono anagrammi?
+
+<span class="px-2 py-1 rounded bg-primary text-[#141418]">Traccia</span> `parola_A = "ciao"` — `parola_B = "cane"`
+
+::left::
+
+```python {1-2|4-6|8|9-16|17|8|9-16|17|18|8|9-16|17|8|9-16|17|18|8|20|23}{maxHeight:'40vh'} {at: 1}
+parola_A = "ciao"
+parola_B = "cane"
+
+anagrammi = True
+if len(parola_A) != len(parola_B):
+    anagrammi = False
+
+for i in range(len(parola_A)):
+    conta_A = 0
+    conta_B = 0
+    for j in range(len(parola_A)):
+        if parola_A[j] == parola_A[i]:
+            conta_A = conta_A + 1
+    for j in range(len(parola_B)):
+        if parola_B[j] == parola_A[i]:
+            conta_B = conta_B + 1
+    if conta_A != conta_B:
+        anagrammi = False
+
+if anagrammi == True:
+    print("anagrammi")
+else:
+    print("non anagrammi")
+```
+
+::right::
+
+<ListTracker
+  :items="['c', 'i', 'a', 'o']"
+  :trackers="{ i: { 2: 0, 5: 1, 9: 2, 12: 3, 16: 4 } }"
+  highlight
+/>
+
+<table>
+  <thead>
+    <tr>
+      <th>i</th>
+      <th>conta_A</th>
+      <th>conta_B</th>
+      <th>anagrammi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-2>—</template>
+          <template #2-5>0</template>
+          <template #5-9>1</template>
+          <template #9-12>2</template>
+          <template #12-16>3</template>
+          <template #16-19>4</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-3>—</template>
+          <template #3-19>1</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-3>—</template>
+          <template #3-6>1</template>
+          <template #6-9>0</template>
+          <template #9-12>1</template>
+          <template #12-19>0</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-1>—</template>
+          <template #1-8>True</template>
+          <template #8-19>False</template>
+        </v-switch>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-18>—</template>
+          <template #18-19>non anagrammi</template>
         </v-switch>
       </td>
     </tr>
@@ -1668,11 +1605,9 @@ class: table-sm
 lista = [1, 3, 5, 7]
 
 ordinata = True
-i = 1
-while i < len(lista):
+for i in range(1, len(lista)):
     if lista[i] < lista[i - 1]:
         ordinata = False
-    i = i + 1
 
 if ordinata == True:
     print("ordinata")
@@ -1693,15 +1628,13 @@ class: table-sm
 
 ::left::
 
-```python {1|3-4|5|6|8|5|6|8|5|6|8|5|10|11} {at: 1}
+```python {1|3|4|5|4|5|4|5|4|8|9} {at: 1}
 lista = [1, 3, 5, 7]
 
 ordinata = True
-i = 1
-while i < len(lista):
+for i in range(1, len(lista)):
     if lista[i] < lista[i - 1]:
         ordinata = False
-    i = i + 1
 
 if ordinata == True:
     print("ordinata")
@@ -1713,7 +1646,7 @@ else:
 
 <ListTracker
   :items="[1, 3, 5, 7]"
-  :trackers="{ i: { 1: 1, 4: 2, 7: 3, 10: 4 } }"
+  :trackers="{ i: { 2: 1, 4: 2, 6: 3, 8: 4 } }"
   highlight
 />
 
@@ -1728,17 +1661,17 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>i = —</template>
-          <template #1-4>i = 1</template>
-          <template #4-7>i = 2</template>
-          <template #7-10>i = 3</template>
-          <template #10-14>i = 4</template>
+          <template #0-2>i = —</template>
+          <template #2-4>i = 1</template>
+          <template #4-6>i = 2</template>
+          <template #6-8>i = 3</template>
+          <template #8-11>i = 4</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>ordinata = —</template>
-          <template #1-14>ordinata = True</template>
+          <template #1-11>ordinata = True</template>
         </v-switch>
       </td>
     </tr>
@@ -1755,8 +1688,8 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-13>—</template>
-          <template #13-14>ordinata</template>
+          <template #0-10>—</template>
+          <template #10-11>ordinata</template>
         </v-switch>
       </td>
     </tr>
@@ -1778,15 +1711,13 @@ class: table-sm
 
 ::left::
 
-```python {1|3-4|5|6|8|5|6|7|8|5|6|8|5|10|12} {at: 1}
+```python {1|3|4|5|4|5|6|4|5|4|8|11} {at: 1}
 lista = [1, 3, 2, 7]
 
 ordinata = True
-i = 1
-while i < len(lista):
+for i in range(1, len(lista)):
     if lista[i] < lista[i - 1]:
         ordinata = False
-    i = i + 1
 
 if ordinata == True:
     print("ordinata")
@@ -1798,7 +1729,7 @@ else:
 
 <ListTracker
   :items="[1, 3, 2, 7]"
-  :trackers="{ i: { 1: 1, 4: 2, 7: 3, 11: 4 } }"
+  :trackers="{ i: { 2: 1, 4: 2, 7: 3, 9: 4 } }"
   highlight
 />
 
@@ -1813,18 +1744,18 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>i = —</template>
-          <template #1-4>i = 1</template>
+          <template #0-2>i = —</template>
+          <template #2-4>i = 1</template>
           <template #4-7>i = 2</template>
-          <template #7-11>i = 3</template>
-          <template #11-15>i = 4</template>
+          <template #7-9>i = 3</template>
+          <template #9-12>i = 4</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>ordinata = —</template>
-          <template #1-7>ordinata = True</template>
-          <template #7-15>ordinata = False</template>
+          <template #1-6>ordinata = True</template>
+          <template #6-12>ordinata = False</template>
         </v-switch>
       </td>
     </tr>
@@ -1841,8 +1772,8 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-14>—</template>
-          <template #14-15>non ordinata</template>
+          <template #0-11>—</template>
+          <template #11-12>non ordinata</template>
         </v-switch>
       </td>
     </tr>
@@ -1881,18 +1812,13 @@ class: table-sm
 lista = [3, 1, 3, 2]
 
 senza_duplicati = []
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     trovato = False
-    j = 0
-    while j < len(senza_duplicati) and trovato == False:
+    for j in range(len(senza_duplicati)):
         if senza_duplicati[j] == lista[i]:
             trovato = True
-        else:
-            j = j + 1
     if trovato == False:
         senza_duplicati.append(lista[i])
-    i = i + 1
 
 print(senza_duplicati)
 ```
@@ -1910,22 +1836,17 @@ class: table-sm
 
 ::left::
 
-```python {1|3-4|5|6-12|13|14|15|5|6-12|13|14|15|5|6-12|13|15|5|6-12|13|14|15|5|17} {at: 1}
+```python {1|3|4|5|6-8|9-10|4|5|6-8|9-10|4|5|6-8|9|4|5|6-8|9-10|4|12} {at: 1}
 lista = [3, 1, 3, 2]
 
 senza_duplicati = []
-i = 0
-while i < len(lista):
+for i in range(len(lista)):
     trovato = False
-    j = 0
-    while j < len(senza_duplicati) and trovato == False:
+    for j in range(len(senza_duplicati)):
         if senza_duplicati[j] == lista[i]:
             trovato = True
-        else:
-            j = j + 1
     if trovato == False:
         senza_duplicati.append(lista[i])
-    i = i + 1
 
 print(senza_duplicati)
 ```
@@ -1934,7 +1855,7 @@ print(senza_duplicati)
 
 <ListTracker
   :items="[3, 1, 3, 2]"
-  :trackers="{ i: { 1: 0, 6: 1, 11: 2, 15: 3, 20: 4 } }"
+  :trackers="{ i: { 2: 0, 6: 1, 10: 2, 14: 3, 18: 4 } }"
   highlight
 />
 
@@ -1950,29 +1871,29 @@ print(senza_duplicati)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-1>—</template>
-          <template #1-6>0</template>
-          <template #6-11>1</template>
-          <template #11-15>2</template>
-          <template #15-20>3</template>
-          <template #20-23>4</template>
+          <template #0-2>—</template>
+          <template #2-6>0</template>
+          <template #6-10>1</template>
+          <template #10-14>2</template>
+          <template #14-18>3</template>
+          <template #18-20>4</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-3>—</template>
-          <template #3-13>False</template>
-          <template #13-17>True</template>
-          <template #17-23>False</template>
+          <template #3-12>False</template>
+          <template #12-14>True</template>
+          <template #14-20>False</template>
         </v-switch>
       </td>
       <td>
         <v-switch at="1" class="font-mono">
           <template #0-1>—</template>
           <template #1-5>[]</template>
-          <template #5-10>[3]</template>
-          <template #10-19>[3, 1]</template>
-          <template #19-23>[3, 1, 2]</template>
+          <template #5-9>[3]</template>
+          <template #9-17>[3, 1]</template>
+          <template #17-20>[3, 1, 2]</template>
         </v-switch>
       </td>
     </tr>
@@ -1989,8 +1910,8 @@ print(senza_duplicati)
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
-          <template #0-22>—</template>
-          <template #22-23>[3, 1, 2]</template>
+          <template #0-19>—</template>
+          <template #19-20>[3, 1, 2]</template>
         </v-switch>
       </td>
     </tr>
@@ -2000,5 +1921,3 @@ print(senza_duplicati)
 ::bottom::
 
 <ClicksSlider class="mt-2" />
-
-> **Nota** Nel passo `6-12` la ricerca nella lista risultato è raggruppata in un unico stato, per mantenere la traccia leggibile.

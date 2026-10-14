@@ -899,7 +899,7 @@
 
     "marini-slidev-addons": ["slidev-addons-russell@github:russell-informatica/slidev-addons#e4d2aeb", {}, "marini-didattica-slidev-addons-e4d2aeb", "sha512-GMhEKgNZEj+fChdJx7GcvWUPT1nrC7dNKDgHzEArQrDXf6KkHBcr4H2rIek3fdIn2sENepwjDZMDcIKObBu1Fw=="],
 
-    "marini-slidev-theme": ["marini-slidev-theme@github:russell-informatica/slidev-theme#f48e5e5", { "dependencies": { "@fontsource/fira-code": "^5.3.0", "@fontsource/ia-writer-quattro": "^5.3.0" } }, "marini-didattica-slidev-theme-f48e5e5", "sha512-AVaR+dhk9UQyHggvTq/PZOQzAwPVCpnHh6LCFp50tcXGcODyQeQ+xArraHv280/vEP1NxLHJ49EAkeYGewoKfw=="],
+    "marini-slidev-theme": ["marini-slidev-theme@github:russell-informatica/slidev-theme#1a09e79", { "dependencies": { "@fontsource/fira-code": "^5.3.0", "@fontsource/ia-writer-quattro": "^5.3.0" } }, "marini-didattica-slidev-theme-1a09e79", "sha512-M6ROs2lwBdn4+qsYko5QetyTGZBStoM1If8k2k3/Vncff4lamefGUE7+FZVAWonXIP5n8spcLki3vtlO3d9iTQ=="],
 
     "markdown-exit": ["markdown-exit@1.3.0", "", { "dependencies": { "@types/linkify-it": "^5.0.0", "@types/mdurl": "^2.0.0", "entities": "^7.0.0", "linkify-it": "^5.0.1", "mdurl": "^2.0.0", "punycode.js": "^2.3.1", "uc.micro": "^2.1.0" } }, "sha512-bsqlcm3Hk1ukcG1Al83pp3JjVobu4w1mpZz47OzLw8bCY8XchkCX+PXC32l2TH4nZ7p5WFg2NwpnLDXkY1X7Yw=="],
 
