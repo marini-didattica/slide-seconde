@@ -10,7 +10,7 @@
 	"dependencies": {
 		"@slidev/cli": "^53.0.0",
 		"vue": "^3.5.43",
-		"slidev-addons-russell": "git+https://github.com/russell-informatica/slidev-addons.git",
-		"slidev-theme-russell": "git+https://github.com/russell-informatica/slidev-theme.git"
+		"marini-slidev-addons": "git+https://github.com/russell-informatica/slidev-addons.git",
+		"marini-slidev-theme": "git+https://github.com/russell-informatica/slidev-theme.git"
 	}
 }

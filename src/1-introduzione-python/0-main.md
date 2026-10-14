@@ -1,7 +1,7 @@
 ---
-theme: slidev-theme-russell
+theme: marini-slidev-theme
 addons:
-  - slidev-addons-russell
+  - marini-slidev-addons
 title: Informatica 2c
 author: Marini Mattia
 info: |
