@@ -1387,63 +1387,7 @@ if anagrammi == True:
 else:
     print("non anagrammi")
 ```
-
-<table>
-  <thead>
-    <tr>
-      <th>output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-49>—</template>
-          <template #49-60>anagrammi</template>
-        </v-switch>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-::right::
-
-> **Concetto** `A[i]` è il carattere che stiamo contando in **entrambe** le stringhe.
-
-<div class="mt-2 flex items-center gap-3">
-  <div class="w-10 shrink-0 text-right font-mono text-xs opacity-70">A[i]</div>
-  <div class="min-w-0 flex-1">
-    <ListTracker
-      :items="['r', 'o', 'm', 'a']"
-      :trackers="{ i: { 3: 0, 14: 1, 25: 2, 36: 3, 47: 4 } }"
-      highlight
-    />
-  </div>
-</div>
-
-<div class="mt-2 flex items-center gap-3">
-  <div class="w-10 shrink-0 text-right font-mono text-xs opacity-70">A[j]</div>
-  <div class="min-w-0 flex-1">
-    <ListTracker
-      :items="['r', 'o', 'm', 'a']"
-      :trackers="{ j: { 5: 0, 6: 1, 7: 2, 8: 3, 9: null, 16: 0, 17: 1, 18: 2, 19: 3, 20: null, 27: 0, 28: 1, 29: 2, 30: 3, 31: null, 38: 0, 39: 1, 40: 2, 41: 3, 42: null } }"
-      highlight
-    />
-  </div>
-</div>
-
-<div class="mt-2 flex items-center gap-3">
-  <div class="w-10 shrink-0 text-right font-mono text-xs opacity-70">B[j]</div>
-  <div class="min-w-0 flex-1">
-    <ListTracker
-      :items="['a', 'm', 'o', 'r']"
-      :trackers="{ j: { 9: 0, 10: 1, 11: 2, 12: 3, 13: null, 20: 0, 21: 1, 22: 2, 23: 3, 24: null, 31: 0, 32: 1, 33: 2, 34: 3, 35: null, 42: 0, 43: 1, 44: 2, 45: 3, 46: null } }"
-      highlight
-    />
-  </div>
-</div>
-
-<table>
+<table class="table-sm">
   <thead>
     <tr>
       <th>i</th>
@@ -1485,6 +1429,46 @@ else:
     </tr>
   </tbody>
 </table>
+
+::right::
+
+
+<div class="text-xs">
+<div class="mt-2 flex items-center gap-3">
+  <div class="w-10 shrink-0 text-right font-mono opacity-70">A[i]</div>
+  <div class="min-w-0 flex-1">
+    <ListTracker
+      :items="['r', 'o', 'm', 'a']"
+      :trackers="{ i: { 3: 0, 14: 1, 25: 2, 36: 3, 47: 4 } }"
+      highlight
+    />
+  </div>
+</div>
+
+<div class="mt-2 flex items-center gap-3">
+  <div class="w-10 shrink-0 text-right font-mono opacity-70">A[j]</div>
+  <div class="min-w-0 flex-1">
+    <ListTracker
+      :items="['r', 'o', 'm', 'a']"
+      :trackers="{ j: { 5: 0, 6: 1, 7: 2, 8: 3, 9: null, 16: 0, 17: 1, 18: 2, 19: 3, 20: null, 27: 0, 28: 1, 29: 2, 30: 3, 31: null, 38: 0, 39: 1, 40: 2, 41: 3, 42: null } }"
+      highlight
+    />
+  </div>
+</div>
+
+<div class="mt-2 flex items-center gap-3">
+  <div class="w-10 shrink-0 text-right font-mono opacity-70">B[j]</div>
+  <div class="min-w-0 flex-1">
+    <ListTracker
+      :items="['a', 'm', 'o', 'r']"
+      :trackers="{ j: { 9: 0, 10: 1, 11: 2, 12: 3, 13: null, 20: 0, 21: 1, 22: 2, 23: 3, 24: null, 31: 0, 32: 1, 33: 2, 34: 3, 35: null, 42: 0, 43: 1, 44: 2, 45: 3, 46: null } }"
+      highlight
+    />
+  </div>
+</div>
+</div>
+
+
 
 ::bottom::
 
@@ -1528,62 +1512,7 @@ else:
     print("non anagrammi")
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th>output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-51>—</template>
-          <template #51-60>non anagrammi</template>
-        </v-switch>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-::right::
-
-> **Concetto** `A[i]` è il carattere che stiamo contando in **entrambe** le stringhe.
-
-<div class="mt-2 flex items-center gap-3">
-  <div class="w-10 shrink-0 text-right font-mono text-xs opacity-70">A[i]</div>
-  <div class="min-w-0 flex-1">
-    <ListTracker
-      :items="['c', 'i', 'a', 'o']"
-      :trackers="{ i: { 3: 0, 14: 1, 26: 2, 37: 3, 49: 4 } }"
-      highlight
-    />
-  </div>
-</div>
-
-<div class="mt-2 flex items-center gap-3">
-  <div class="w-10 shrink-0 text-right font-mono text-xs opacity-70">A[j]</div>
-  <div class="min-w-0 flex-1">
-    <ListTracker
-      :items="['c', 'i', 'a', 'o']"
-      :trackers="{ j: { 5: 0, 6: 1, 7: 2, 8: 3, 9: null, 16: 0, 17: 1, 18: 2, 19: 3, 20: null, 28: 0, 29: 1, 30: 2, 31: 3, 32: null, 39: 0, 40: 1, 41: 2, 42: 3, 43: null } }"
-      highlight
-    />
-  </div>
-</div>
-
-<div class="mt-2 flex items-center gap-3">
-  <div class="w-10 shrink-0 text-right font-mono text-xs opacity-70">B[j]</div>
-  <div class="min-w-0 flex-1">
-    <ListTracker
-      :items="['c', 'a', 'n', 'e']"
-      :trackers="{ j: { 9: 0, 10: 1, 11: 2, 12: 3, 13: null, 20: 0, 21: 1, 22: 2, 23: 3, 24: null, 32: 0, 33: 1, 34: 2, 35: 3, 36: null, 43: 0, 44: 1, 45: 2, 46: 3, 47: null } }"
-      highlight
-    />
-  </div>
-</div>
-
-<table>
+<table class="table-sm">
   <thead>
     <tr>
       <th>i</th>
@@ -1629,6 +1558,45 @@ else:
     </tr>
   </tbody>
 </table>
+
+::right::
+
+
+<div class="text-xs">
+<div class="mt-2 flex items-center gap-3">
+  <div class="w-10 shrink-0 text-right font-mono text-xs opacity-70">A[i]</div>
+  <div class="min-w-0 flex-1">
+    <ListTracker
+      :items="['c', 'i', 'a', 'o']"
+      :trackers="{ i: { 3: 0, 14: 1, 26: 2, 37: 3, 49: 4 } }"
+      highlight
+    />
+  </div>
+</div>
+
+<div class="mt-2 flex items-center gap-3">
+  <div class="w-10 shrink-0 text-right font-mono text-xs opacity-70">A[j]</div>
+  <div class="min-w-0 flex-1">
+    <ListTracker
+      :items="['c', 'i', 'a', 'o']"
+      :trackers="{ j: { 5: 0, 6: 1, 7: 2, 8: 3, 9: null, 16: 0, 17: 1, 18: 2, 19: 3, 20: null, 28: 0, 29: 1, 30: 2, 31: 3, 32: null, 39: 0, 40: 1, 41: 2, 42: 3, 43: null } }"
+      highlight
+    />
+  </div>
+</div>
+
+<div class="mt-2 flex items-center gap-3">
+  <div class="w-10 shrink-0 text-right font-mono text-xs opacity-70">B[j]</div>
+  <div class="min-w-0 flex-1">
+    <ListTracker
+      :items="['c', 'a', 'n', 'e']"
+      :trackers="{ j: { 9: 0, 10: 1, 11: 2, 12: 3, 13: null, 20: 0, 21: 1, 22: 2, 23: 3, 24: null, 32: 0, 33: 1, 34: 2, 35: 3, 36: null, 43: 0, 44: 1, 45: 2, 46: 3, 47: null } }"
+      highlight
+    />
+  </div>
+</div>
+</div>
+
 
 ::bottom::
 
