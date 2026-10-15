@@ -1362,7 +1362,7 @@ class: table-sm
 
 ::left::
 
-```python {1-2|4-6|8|9-16|17|8|9-16|17|8|9-16|17|8|9-16|17|8|20|21}{maxHeight:'40vh'} {at: 1}
+```python {1-2|4-6|8|9-10|11-13|11-13|11-13|11-13|14-16|14-16|14-16|14-16|17|8|9-10|11-13|11-13|11-13|11-13|14-16|14-16|14-16|14-16|17|8|9-10|11-13|11-13|11-13|11-13|14-16|14-16|14-16|14-16|17|8|9-10|11-13|11-13|11-13|11-13|14-16|14-16|14-16|14-16|17|8|20|21}{maxHeight:'40vh'} {at: 1}
 parola_A = "roma"
 parola_B = "amor"
 
@@ -1388,11 +1388,49 @@ else:
     print("non anagrammi")
 ```
 
+<table>
+  <thead>
+    <tr>
+      <th>output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-49>—</template>
+          <template #49-60>anagrammi</template>
+        </v-switch>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ::right::
+
+> **Concetto** `A[i]` è il carattere che stiamo contando in **entrambe** le stringhe.
+
+<div class="mt-2 font-mono text-xs opacity-70">A[i]</div>
 
 <ListTracker
   :items="['r', 'o', 'm', 'a']"
-  :trackers="{ i: { 2: 0, 5: 1, 8: 2, 11: 3, 14: 4 } }"
+  :trackers="{ i: { 3: 0, 14: 1, 25: 2, 36: 3, 47: 4 } }"
+  highlight
+/>
+
+<div class="mt-2 font-mono text-xs opacity-70">A[j]</div>
+
+<ListTracker
+  :items="['r', 'o', 'm', 'a']"
+  :trackers="{ j: { 5: 0, 6: 1, 7: 2, 8: 3, 9: null, 16: 0, 17: 1, 18: 2, 19: 3, 20: null, 27: 0, 28: 1, 29: 2, 30: 3, 31: null, 38: 0, 39: 1, 40: 2, 41: 3, 42: null } }"
+  highlight
+/>
+
+<div class="mt-2 font-mono text-xs opacity-70">B[j]</div>
+
+<ListTracker
+  :items="['a', 'm', 'o', 'r']"
+  :trackers="{ j: { 9: 0, 10: 1, 11: 2, 12: 3, 13: null, 20: 0, 21: 1, 22: 2, 23: 3, 24: null, 31: 0, 32: 1, 33: 2, 34: 3, 35: null, 42: 0, 43: 1, 44: 2, 45: 3, 46: null } }"
   highlight
 />
 
@@ -1409,48 +1447,30 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
+          <template #0-3>—</template>
+          <template #3-14>0</template>
+          <template #14-25>1</template>
+          <template #25-36>2</template>
+          <template #36-47>3</template>
+          <template #47-60>4</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-5>—</template>
+          <template #5-60>1</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-12>—</template>
+          <template #12-60>1</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
           <template #0-2>—</template>
-          <template #2-5>0</template>
-          <template #5-8>1</template>
-          <template #8-11>2</template>
-          <template #11-14>3</template>
-          <template #14-17>4</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-3>—</template>
-          <template #3-17>1</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-3>—</template>
-          <template #3-17>1</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-1>—</template>
-          <template #1-17>True</template>
-        </v-switch>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-16>—</template>
-          <template #16-17>anagrammi</template>
+          <template #2-60>True</template>
         </v-switch>
       </td>
     </tr>
@@ -1473,7 +1493,7 @@ class: table-sm
 
 ::left::
 
-```python {1-2|4-6|8|9-16|17|8|9-16|17|18|8|9-16|17|8|9-16|17|18|8|20|23}{maxHeight:'40vh'} {at: 1}
+```python {1-2|4-6|8|9-10|11-13|11-13|11-13|11-13|14-16|14-16|14-16|14-16|17|8|9-10|11-13|11-13|11-13|11-13|14-16|14-16|14-16|14-16|17|18|8|9-10|11-13|11-13|11-13|11-13|14-16|14-16|14-16|14-16|17|8|9-10|11-13|11-13|11-13|11-13|14-16|14-16|14-16|14-16|17|18|8|20|23}{maxHeight:'40vh'} {at: 1}
 parola_A = "ciao"
 parola_B = "cane"
 
@@ -1499,11 +1519,49 @@ else:
     print("non anagrammi")
 ```
 
+<table>
+  <thead>
+    <tr>
+      <th>output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-51>—</template>
+          <template #51-60>non anagrammi</template>
+        </v-switch>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ::right::
+
+> **Concetto** `A[i]` è il carattere che stiamo contando in **entrambe** le stringhe.
+
+<div class="mt-2 font-mono text-xs opacity-70">A[i]</div>
 
 <ListTracker
   :items="['c', 'i', 'a', 'o']"
-  :trackers="{ i: { 2: 0, 5: 1, 9: 2, 12: 3, 16: 4 } }"
+  :trackers="{ i: { 3: 0, 14: 1, 26: 2, 37: 3, 49: 4 } }"
+  highlight
+/>
+
+<div class="mt-2 font-mono text-xs opacity-70">A[j]</div>
+
+<ListTracker
+  :items="['c', 'i', 'a', 'o']"
+  :trackers="{ j: { 5: 0, 6: 1, 7: 2, 8: 3, 9: null, 16: 0, 17: 1, 18: 2, 19: 3, 20: null, 28: 0, 29: 1, 30: 2, 31: 3, 32: null, 39: 0, 40: 1, 41: 2, 42: 3, 43: null } }"
+  highlight
+/>
+
+<div class="mt-2 font-mono text-xs opacity-70">B[j]</div>
+
+<ListTracker
+  :items="['c', 'a', 'n', 'e']"
+  :trackers="{ j: { 9: 0, 10: 1, 11: 2, 12: 3, 13: null, 20: 0, 21: 1, 22: 2, 23: 3, 24: null, 32: 0, 33: 1, 34: 2, 35: 3, 36: null, 43: 0, 44: 1, 45: 2, 46: 3, 47: null } }"
   highlight
 />
 
@@ -1520,52 +1578,34 @@ else:
     <tr>
       <td>
         <v-switch at="1" class="font-mono">
+          <template #0-3>—</template>
+          <template #3-14>0</template>
+          <template #14-26>1</template>
+          <template #26-37>2</template>
+          <template #37-49>3</template>
+          <template #49-60>4</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-5>—</template>
+          <template #5-60>1</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
+          <template #0-3>—</template>
+          <template #3-14>1</template>
+          <template #14-26>0</template>
+          <template #26-37>1</template>
+          <template #37-60>0</template>
+        </v-switch>
+      </td>
+      <td>
+        <v-switch at="1" class="font-mono">
           <template #0-2>—</template>
-          <template #2-5>0</template>
-          <template #5-9>1</template>
-          <template #9-12>2</template>
-          <template #12-16>3</template>
-          <template #16-19>4</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-3>—</template>
-          <template #3-19>1</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-3>—</template>
-          <template #3-6>1</template>
-          <template #6-9>0</template>
-          <template #9-12>1</template>
-          <template #12-19>0</template>
-        </v-switch>
-      </td>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-1>—</template>
-          <template #1-8>True</template>
-          <template #8-19>False</template>
-        </v-switch>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <v-switch at="1" class="font-mono">
-          <template #0-18>—</template>
-          <template #18-19>non anagrammi</template>
+          <template #2-25>True</template>
+          <template #25-60>False</template>
         </v-switch>
       </td>
     </tr>
